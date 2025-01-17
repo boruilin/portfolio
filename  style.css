@@ -4,3 +4,37 @@ body {
   margin-inline: max(1em, (100% - 100ch) / 2); 
   padding-inline: 1em; 
 }
+nav ul, 
+nav li {
+    display: contents;
+}
+
+/* Flexbox for navigation layout */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 1em 0;
+}
+
+/* Style for links */
+nav a {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5em;
+    font-weight: bold;
+}
+
+/* Highlight the current page link */
+nav a.current {
+    border-bottom: 3px solid #333;
+}
+
+/* Hover effect for links */
+nav a:hover {
+    color: #007BFF;
+    border-bottom: 3px solid #007BFF;
+}
