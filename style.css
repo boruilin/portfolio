@@ -38,8 +38,10 @@ form h1 {
 
 /* Label styling */
 form label {
-    display: flex; /* Flex layout to align label text */
-    align-items: center; /* Vertically center label text */
+    display: block; /* Block-level for labels */
+    align-self: center; /* Vertically center-align labels */
+    text-align: right; /* Align text to the right for labels */
+    padding-right: 1em; /* Add space between label and input */
 }
 
 /* Input and textarea styling */
@@ -77,6 +79,8 @@ form button {
 form button:hover {
     background-color: #666666; /* Darker grey on hover */
 }
+
+
 
 
 
