@@ -1,41 +1,60 @@
+
 body {
-  font: 100%/1.5 system-ui; 
-  max-width: 100ch; 
-  margin-inline: max(1em, (100% - 100ch) / 2); 
-  padding-inline: 1em; 
+    font: 100%/1.5 system-ui;
+    max-width: 100ch;
+    margin-inline: max(1em, (100% - 100ch) / 2);
+    padding-inline: 1em;
+}
+.small-image {
+    max-width: 300px; /* Restrict maximum width */
+    width: 100%; /* Allow image to shrink if needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
-nav ul, 
-nav li {
-    display: contents;
-}
-
-/* Flexbox for navigation layout */
+/* General navigation bar styling */
 nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding: 1em 0;
+    display: flex; /* Flexbox layout for horizontal alignment */
+    justify-content: space-around; /* Space out links evenly */
+    align-items: center; /* Center items vertically */
+    border-bottom: 1px solid #ccc; /* Light gray border at the bottom */
+    padding: 1em 0; /* Add vertical padding */
+    margin-bottom: 1em; /* Add space below the nav */
+}
+
+/* Remove default list and bullet styling */
+nav ul {
+    list-style: none; /* Remove bullets */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Arrange list items in a row */
+    width: 100%; /* Full width */
+}
+
+nav li {
+    flex: 1; /* Make each list item take equal space */
+    text-align: center; /* Center-align the text */
 }
 
 /* Style for links */
 nav a {
-    flex: 1;
-    text-align: center;
-    text-decoration: none;
-    color: inherit;
-    padding: 0.5em;
-    font-weight: bold;
+    text-decoration: none; /* Remove underline */
+    color: black; /* Default text color */
+    font-weight: bold; /* Bold text */
+    padding: 0.5em 0; /* Add padding inside the links */
+    display: block; /* Ensure full width is clickable */
+    position: relative; /* Enable positioning for hover effect */
 }
 
-/* Highlight the current page link */
+/* Style the current (active) page */
 nav a.current {
-    border-bottom: 3px solid #333;
+    color: black; /* Active link text color */
+    border-bottom: 4px solid #ccc; /* Gray bottom border */
 }
 
-/* Hover effect for links */
+/* Hover effect with background color and underline */
 nav a:hover {
-    color: #007BFF;
-    border-bottom: 3px solid #007BFF;
+    background-color: rgba(255, 0, 128, 0.1); /* Light pink background */
+    border-bottom: 4px solid rgba(255, 0, 128, 1); /* Pink underline */
+    color: black; /* Ensure text remains visible */
+    cursor: pointer; /* Show pointer cursor */
 }
