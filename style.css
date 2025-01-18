@@ -16,39 +16,41 @@ button {
     width: 100%; /* Allow image to shrink if needed */
     height: auto; /* Maintain aspect ratio */
 }
+/* General form styling */
 form {
-    max-width: 600px; /* Limit the form width */
+    display: grid; /* Enable grid layout */
+    grid-template-columns: auto 1fr; /* Two columns: auto for labels, 1fr for inputs */
+    gap: 1em; /* Add space between grid items */
+    max-width: 600px; /* Limit form width */
     margin: 0 auto; /* Center the form */
-    padding: 1em; /* Add some padding */
-    border: 1px solid #ccc; /* Add a light border */
-    border-radius: 8px; /* Add rounded corners */
+    padding: 1em; /* Add padding around the form */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 8px; /* Rounded corners */
     background-color: #f9f9f9; /* Light background color */
 }
 
-/* Form heading styling */
+/* Heading styling */
 form h1 {
+    grid-column: 1 / -1; /* Span across all columns */
     text-align: center; /* Center the heading */
     margin-bottom: 1em; /* Add space below the heading */
 }
 
-/* Labels styling */
+/* Label styling */
 form label {
-    display: block; /* Make labels block-level */
-    margin-block: 0.5em; /* Add spacing before and after labels */
-    font-weight: bold; /* Make labels bold */
+    display: flex; /* Flex layout to align label text */
+    align-items: center; /* Vertically center label text */
 }
 
 /* Input and textarea styling */
 form input,
 form textarea {
-    display: block; /* Make inputs and textareas block-level */
-    width: 100%; /* Make them take up the full width */
+    width: 100%; /* Full width within grid column */
     padding: 0.5em; /* Add padding inside inputs */
-    margin-bottom: 1em; /* Add spacing below each field */
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 4px; /* Slightly rounded corners */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
     box-sizing: border-box; /* Include padding and border in width */
-    font: inherit; /* Inherit font styles from parent */
+    font: inherit; /* Inherit font styles */
 }
 
 /* Textarea styling */
@@ -59,22 +61,23 @@ form textarea {
 
 /* Button styling */
 form button {
-    display: block; /* Make the button block-level */
-    width: 100%; /* Make the button take up the full width */
-    padding: 0.75em; /* Add padding inside the button */
-    background-color: #007BFF; /* Primary blue color */
+    grid-column: 1 / -1; /* Span across all columns */
+    width: 100%; /* Full width */
+    padding: 0.75em; /* Add padding */
+    background-color: #808080; /* Grey background color */
     color: white; /* White text */
     border: none; /* Remove border */
     border-radius: 4px; /* Rounded corners */
     font-size: 1em; /* Increase font size */
-    cursor: pointer; /* Change cursor to pointer */
+    cursor: pointer; /* Pointer cursor on hover */
     font: inherit; /* Inherit font styles */
 }
 
 /* Button hover effect */
 form button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #666666; /* Darker grey on hover */
 }
+
 
 
 /* General navigation bar styling */
