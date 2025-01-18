@@ -16,70 +16,6 @@ button {
     width: 100%; /* Allow image to shrink if needed */
     height: auto; /* Maintain aspect ratio */
 }
-/* General form styling */
-form {
-    display: grid; /* Enable grid layout */
-    grid-template-columns: auto 1fr; /* Two columns: auto for labels, 1fr for inputs */
-    gap: 1em; /* Add space between grid items */
-    max-width: 600px; /* Limit form width */
-    margin: 0 auto; /* Center the form */
-    padding: 1em; /* Add padding around the form */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 8px; /* Rounded corners */
-    background-color: #f9f9f9; /* Light background color */
-}
-
-/* Heading styling */
-form h1 {
-    grid-column: 1 / -1; /* Span across all columns */
-    text-align: center; /* Center the heading */
-    margin-bottom: 1em; /* Add space below the heading */
-}
-
-/* Label styling */
-form label {
-    display: block; /* Block-level for labels */
-    align-self: center; /* Vertically center-align labels */
-    text-align: right; /* Align text to the right for labels */
-    padding-right: 1em; /* Add space between label and input */
-}
-
-/* Input and textarea styling */
-form input,
-form textarea {
-    width: 100%; /* Full width within grid column */
-    padding: 0.5em; /* Add padding inside inputs */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 4px; /* Rounded corners */
-    box-sizing: border-box; /* Include padding and border in width */
-    font: inherit; /* Inherit font styles */
-}
-
-/* Textarea styling */
-form textarea {
-    resize: vertical; /* Allow vertical resizing only */
-    min-height: 100px; /* Set a minimum height */
-}
-
-/* Button styling */
-form button {
-    grid-column: 1 / -1; /* Span across all columns */
-    width: 100%; /* Full width */
-    padding: 0.75em; /* Add padding */
-    background-color: #808080; /* Grey background color */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 1em; /* Increase font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    font: inherit; /* Inherit font styles */
-}
-
-/* Button hover effect */
-form button:hover {
-    background-color: #666666; /* Darker grey on hover */
-}
-
 
 
 
@@ -118,6 +54,7 @@ nav a {
     position: relative; /* Enable positioning for hover effect */
 }
 
+
 /* Style the current (active) page */
 nav a.current {
     color: black; /* Active link text color */
@@ -130,4 +67,62 @@ nav a:hover {
     border-bottom: 4px solid rgba(255, 0, 128, 1); /* Pink underline */
     color: black; /* Ensure text remains visible */
     cursor: pointer; /* Show pointer cursor */
+}
+/* Form container */
+form {
+    display: grid; /* Enable grid layout */
+    grid-template-columns: auto 1fr; /* Two columns: labels (auto) and inputs (1fr) */
+    gap: 0.5em; /* Reduce spacing between elements */
+    max-width: 500px; /* Limit the overall width of the form */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Label styling */
+form label {
+    display: flex; /* Make labels flexible */
+    align-items: center; /* Vertically center the text */
+    text-align: right; /* Right-align the label text */
+    margin: 0; /* Remove default margin */
+    padding-right: 0.5em; /* Add slight space between label and input */
+}
+
+/* Input and textarea styling */
+form input,
+form textarea {
+    width: 100%; /* Ensure inputs take up available space in their column */
+    padding: 0.4em; /* Compact padding */
+    border: 1px solid #ccc; /* Add a light border */
+    border-radius: 4px; /* Slightly rounded corners */
+    box-sizing: border-box; /* Include padding in width calculation */
+    font: inherit; /* Inherit font styling */
+}
+
+/* Textarea adjustments */
+form textarea {
+    resize: none; /* Disable resizing */
+    min-height: 3em; /* Smaller height */
+}
+
+/* Button styling */
+form button {
+    grid-column: 1 / -1; /* Span the entire row for the button */
+    padding: 0.5em; /* Compact padding */
+    background-color: #ccc; /* Neutral grey background */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    font: inherit; /* Inherit font styling */
+    text-align: center; /* Center-align text */
+}
+
+/* Button hover effect */
+form button:hover {
+    background-color: #aaa; /* Slightly darker grey */
+}
+
+.projects {
+    display: grid; /* Enable grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Responsive columns */
+    gap: 1em; /* Add spacing between grid items */
+    padding: 1em; /* Add padding around the grid */
 }
