@@ -126,3 +126,118 @@ form button:hover {
     gap: 1em; /* Add spacing between grid items */
     padding: 1em; /* Add padding around the grid */
 }
+.projects article {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    gap: 0.5em;
+}
+
+.projects article h2 {
+    margin: 0;
+    font-size: 1.2em;
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+.projects article img {
+    width: 100%;
+    height: auto;
+}
+
+/* Global Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    text-wrap: balance;
+    margin: 0.5em 0;
+}
+
+h1 {
+    font-size: 400%;
+}
+
+/* General resume page styling */
+.resume {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+/* Heading styles */
+.resume h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 1em;
+    color: #007BFF;
+}
+
+.resume h2 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+    color: #0056b3;
+}
+
+.resume h3 {
+    font-size: 1.4em;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+/* Section styling */
+.resume section {
+    margin-bottom: 2em;
+    padding: 1em;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Personal Information styling */
+.resume section p {
+    margin: 0.5em 0;
+}
+
+.resume a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.resume a:hover {
+    text-decoration: underline;
+}
+
+/* Work experience list */
+.resume ul {
+    margin: 0.5em 0;
+    padding-left: 1.5em;
+}
+
+.resume ul li {
+    margin-bottom: 0.5em;
+}
+
+/* Time elements */
+.resume time {
+    font-style: italic;
+    color: #555;
+}
+
+/* Skills section */
+.resume ul li {
+    font-size: 1em;
+    margin: 0.2em 0;
+}
+
+/* Highlighting skills */
+.resume ul li span {
+    font-weight: bold;
+}
+
+/* Additional tweaks for readability */
+.resume article {
+    margin-bottom: 1em;
+}
