@@ -16,6 +16,66 @@ button {
     width: 100%; /* Allow image to shrink if needed */
     height: auto; /* Maintain aspect ratio */
 }
+form {
+    max-width: 600px; /* Limit the form width */
+    margin: 0 auto; /* Center the form */
+    padding: 1em; /* Add some padding */
+    border: 1px solid #ccc; /* Add a light border */
+    border-radius: 8px; /* Add rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+}
+
+/* Form heading styling */
+form h1 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 1em; /* Add space below the heading */
+}
+
+/* Labels styling */
+form label {
+    display: block; /* Make labels block-level */
+    margin-block: 0.5em; /* Add spacing before and after labels */
+    font-weight: bold; /* Make labels bold */
+}
+
+/* Input and textarea styling */
+form input,
+form textarea {
+    display: block; /* Make inputs and textareas block-level */
+    width: 100%; /* Make them take up the full width */
+    padding: 0.5em; /* Add padding inside inputs */
+    margin-bottom: 1em; /* Add spacing below each field */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Slightly rounded corners */
+    box-sizing: border-box; /* Include padding and border in width */
+    font: inherit; /* Inherit font styles from parent */
+}
+
+/* Textarea styling */
+form textarea {
+    resize: vertical; /* Allow vertical resizing only */
+    min-height: 100px; /* Set a minimum height */
+}
+
+/* Button styling */
+form button {
+    display: block; /* Make the button block-level */
+    width: 100%; /* Make the button take up the full width */
+    padding: 0.75em; /* Add padding inside the button */
+    background-color: #007BFF; /* Primary blue color */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 1em; /* Increase font size */
+    cursor: pointer; /* Change cursor to pointer */
+    font: inherit; /* Inherit font styles */
+}
+
+/* Button hover effect */
+form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
 
 /* General navigation bar styling */
 nav {
