@@ -4,6 +4,7 @@ body {
   margin-inline: max(1em, (100% - 100ch) / 2); 
   padding-inline: 1em; 
 }
+
 nav ul, 
 nav li {
     display: contents;
