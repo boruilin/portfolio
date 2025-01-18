@@ -5,6 +5,12 @@ body {
     margin-inline: max(1em, (100% - 100ch) / 2);
     padding-inline: 1em;
 }
+input, 
+textarea, 
+button {
+    font: inherit; /* Inherit font-family, font-size, line-height, and weight */
+    color: inherit; /* Inherit text color */
+}
 .small-image {
     max-width: 300px; /* Restrict maximum width */
     width: 100%; /* Allow image to shrink if needed */
