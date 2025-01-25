@@ -18,27 +18,31 @@ document.body.prepend(nav);
 
 const ARE_WE_HOME = document.documentElement.classList.contains('home') || location.pathname === '/';
 
-try {
-  for (let p of pages) {
+
+for (let p of pages) {
     let url = p.url;
     let title = p.title;
-
+  
+    // Adjust the URL if not on the home page and the URL is not absolute
     url = !ARE_WE_HOME && !url.startsWith('http') ? '../' + url : url;
-
+  
+    // Create a new <a> element
     let a = document.createElement('a');
     a.href = url;
     a.textContent = title;
-
+  
+    // Highlight the current page
     a.classList.toggle(
       'current',
       a.host === location.host && a.pathname === location.pathname
     );
-
-    a.toggleAttribute('target', a.host !== location.host);
-
+  
+    // Open external links in a new tab
+    if (url.startsWith('http')) {
+      a.target = '_blank'; // Use explicit check for absolute URLs
+    }
+  
+    // Append the link to the <nav>
     nav.append(a);
   }
-  console.log('Navigation menu generated:', nav);
-} catch (error) {
-  console.error('Error generating navigation menu:', error);
-}
+  

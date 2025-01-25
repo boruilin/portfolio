@@ -241,3 +241,33 @@ h1 {
 .resume article {
     margin-bottom: 1em;
 }
+:root {
+    color-scheme: light dark; /* Enable automatic dark mode */
+  
+    /* Define adaptive variables */
+    --border-color: oklch(50% 10% 200 / 40%);
+    --color-accent: oklch(70% 20% 30); /* Example accent color */
+    --bg-color: canvas;
+    --text-color: canvastext;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  nav {
+    border-bottom: 1px solid var(--border-color); /* Use adaptive border color */
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: inherit; /* Inherit text color */
+  }
+  
+  nav a:hover {
+    /* Adaptive hover background color */
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+    color: canvastext; /* Ensure text remains readable */
+  }
+  
