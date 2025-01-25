@@ -19,26 +19,34 @@
     padding-inline: 1em;
   }
   
+/* Position the color scheme dropdown in the top-right corner */
 .color-scheme {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
+    position: absolute; /* Absolute positioning */
+    top: 1em; /* Distance from the top */
+    right: 1em; /* Distance from the right */
+    display: flex; /* Align the label and dropdown horizontally */
+    align-items: center; /* Vertically center label and dropdown */
+    gap: 0.5em; /* Space between the label and dropdown */
     font-size: 1rem;
-    margin-bottom: 1em;
-  }
-  
-  .color-scheme select {
+    z-index: 1000; /* Ensure it appears on top of other elements */
+}
+
+/* Style the select element */
+.color-scheme select {
     padding: 0.4em;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font: inherit;
+    border: 1px solid var(--border-color); /* Use adaptive border color */
+    border-radius: 4px; /* Rounded corners */
+    font: inherit; /* Inherit font styles */
     cursor: pointer;
-  }
-  
-  .color-scheme select:hover {
-    border-color: #007BFF;
-  }
-  
+    background-color: var(--bg-color); /* Adaptive background color */
+    color: var(--text-color); /* Adaptive text color */
+}
+
+/* Add hover effect for the dropdown */
+.color-scheme select:hover {
+    border-color: var(--color-accent); /* Use the accent color for hover */
+}
+
 input, 
 textarea, 
 button {
@@ -91,12 +99,31 @@ nav a {
 nav a.current {
     color: var(--text-color); /* Use adaptive text color */
     border-bottom: 4px solid var(--border-color); /* Adaptive border */
+    position: relative;
+}
+nav a.current::after {
+    content: ''; /* Empty content for the underline */
+    position: absolute; /* Position it relative to the link */
+    bottom: 0; /* Stick it to the bottom of the link */
+    left: 0; /* Start from the left */
+    width: 100%; /* Full width underline */
+    height: 3px; /* Height of the underline */
+    background-color: var(--border-color); /* Adaptive highlight color */
 }
 
 nav a:hover {
     background-color: var(--hover-bg-color); /* Adaptive hover background */
     color: var(--text-color); /* Ensure hover text remains visible */
     cursor: pointer;
+}
+nav a:hover::after {
+    content: ''; /* Add underline on hover */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-accent); /* Use accent color on hover */
 }
 
 /* Form container */
@@ -191,13 +218,13 @@ h1 {
     font-size: 2.5em;
     text-align: center;
     margin-bottom: 1em;
-    color: var(--color-accent); /* Adaptive accent color */
+    color: var(--text-color); /* Adaptive accent color */
 }
 
 .resume h2 {
     font-size: 1.8em;
     margin-bottom: 0.5em;
-    color: var(--hover-bg-color); /* Adaptive hover accent */
+    color: var(--text-color); /* Adaptive hover accent */
 }
 
 .resume h3 {
@@ -210,7 +237,8 @@ h1 {
 .resume section {
     margin-bottom: 2em;
     padding: 1em;
-    background: var(--bg-color);
+    background: color-mix(in oklch, var(--bg-color), black 5%);
+    color: var(--text-color);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -242,7 +270,7 @@ h1 {
 /* Time elements */
 .resume time {
     font-style: italic;
-    color: #555;
+    color: var(--text-color);
 }
 
 /* Skills section */
