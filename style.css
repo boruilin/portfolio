@@ -1,10 +1,44 @@
 
-body {
+:root {
+    color-scheme: light dark; /* Enable automatic dark mode */
+  
+    /* Define adaptive variables */
+    --border-color: oklch(50% 10% 200 / 40%);
+    --color-accent: oklch(70% 20% 30); /* Example accent color */
+    --bg-color: canvas; /* System background color */
+    --text-color: canvastext; /* System text color */
+    --hover-bg-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font: 100%/1.5 system-ui;
     max-width: 100ch;
     margin-inline: max(1em, (100% - 100ch) / 2);
     padding-inline: 1em;
-}
+  }
+  
+.color-scheme {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 1rem;
+    margin-bottom: 1em;
+  }
+  
+  .color-scheme select {
+    padding: 0.4em;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font: inherit;
+    cursor: pointer;
+  }
+  
+  .color-scheme select:hover {
+    border-color: #007BFF;
+  }
+  
 input, 
 textarea, 
 button {
@@ -46,28 +80,25 @@ nav li {
 
 /* Style for links */
 nav a {
-    text-decoration: none; /* Remove underline */
-    color: black; /* Default text color */
-    font-weight: bold; /* Bold text */
-    padding: 0.5em 0; /* Add padding inside the links */
-    display: block; /* Ensure full width is clickable */
-    position: relative; /* Enable positioning for hover effect */
+    text-decoration: none;
+    color: var(--text-color); /* Use adaptive text color */
+    font-weight: bold;
+    padding: 0.5em 0;
+    display: block;
+    position: relative;
 }
 
-
-/* Style the current (active) page */
 nav a.current {
-    color: black; /* Active link text color */
-    border-bottom: 4px solid #ccc; /* Gray bottom border */
+    color: var(--text-color); /* Use adaptive text color */
+    border-bottom: 4px solid var(--border-color); /* Adaptive border */
 }
 
-/* Hover effect with background color and underline */
 nav a:hover {
-    background-color: rgba(255, 0, 128, 0.1); /* Light pink background */
-    border-bottom: 4px solid rgba(255, 0, 128, 1); /* Pink underline */
-    color: black; /* Ensure text remains visible */
-    cursor: pointer; /* Show pointer cursor */
+    background-color: var(--hover-bg-color); /* Adaptive hover background */
+    color: var(--text-color); /* Ensure hover text remains visible */
+    cursor: pointer;
 }
+
 /* Form container */
 form {
     display: grid; /* Enable grid layout */
@@ -89,43 +120,30 @@ form label {
 /* Input and textarea styling */
 form input,
 form textarea {
-    width: 100%; /* Ensure inputs take up available space in their column */
-    padding: 0.4em; /* Compact padding */
-    border: 1px solid #ccc; /* Add a light border */
-    border-radius: 4px; /* Slightly rounded corners */
-    box-sizing: border-box; /* Include padding in width calculation */
-    font: inherit; /* Inherit font styling */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
 }
 
-/* Textarea adjustments */
-form textarea {
-    resize: none; /* Disable resizing */
-    min-height: 3em; /* Smaller height */
-}
-
-/* Button styling */
 form button {
-    grid-column: 1 / -1; /* Span the entire row for the button */
-    padding: 0.5em; /* Compact padding */
-    background-color: #ccc; /* Neutral grey background */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor for interactivity */
-    font: inherit; /* Inherit font styling */
-    text-align: center; /* Center-align text */
+  background-color: var(--border-color);
+  color: var(--text-color);
+  border: none;
 }
 
-/* Button hover effect */
 form button:hover {
-    background-color: #aaa; /* Slightly darker grey */
+  background-color: var(--hover-bg-color);
 }
+
 
 .projects {
-    display: grid; /* Enable grid layout */
-    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Responsive columns */
-    gap: 1em; /* Add spacing between grid items */
-    padding: 1em; /* Add padding around the grid */
-}
+    background-color: var(--bg-color); /* Adaptive background */
+    color: var(--text-color); /* Adaptive text */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1em;
+    padding: 1em;
+  }
 .projects article {
     display: grid;
     grid-template-rows: subgrid;
@@ -147,6 +165,7 @@ form button:hover {
 
 /* Global Heading Styles */
 h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
     line-height: 1.1;
     text-wrap: balance;
     margin: 0.5em 0;
@@ -158,40 +177,40 @@ h1 {
 
 /* General resume page styling */
 .resume {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     max-width: 800px;
     margin: 0 auto;
     padding: 2em;
-}
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for better contrast */
+  }
 
 /* Heading styles */
 .resume h1 {
     font-size: 2.5em;
     text-align: center;
     margin-bottom: 1em;
-    color: #007BFF;
+    color: var(--color-accent); /* Adaptive accent color */
 }
 
 .resume h2 {
     font-size: 1.8em;
     margin-bottom: 0.5em;
-    color: #0056b3;
+    color: var(--hover-bg-color); /* Adaptive hover accent */
 }
 
 .resume h3 {
     font-size: 1.4em;
     margin-bottom: 0.5em;
-    color: #333;
+    color: var(--text-color);;
 }
 
 /* Section styling */
 .resume section {
     margin-bottom: 2em;
     padding: 1em;
-    background: #fff;
+    background: var(--bg-color);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -202,7 +221,7 @@ h1 {
 }
 
 .resume a {
-    color: #007BFF;
+    color: var(--color-accent);
     text-decoration: none;
 }
 
@@ -241,33 +260,13 @@ h1 {
 .resume article {
     margin-bottom: 1em;
 }
-:root {
-    color-scheme: light dark; /* Enable automatic dark mode */
-  
-    /* Define adaptive variables */
-    --border-color: oklch(50% 10% 200 / 40%);
-    --color-accent: oklch(70% 20% 30); /* Example accent color */
-    --bg-color: canvas;
-    --text-color: canvastext;
-  }
-  
-  body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  }
-  
-  nav {
-    border-bottom: 1px solid var(--border-color); /* Use adaptive border color */
-  }
-  
-  nav a {
+a {
+    color: var(--color-accent);
     text-decoration: none;
-    color: inherit; /* Inherit text color */
   }
   
-  nav a:hover {
-    /* Adaptive hover background color */
-    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-    color: canvastext; /* Ensure text remains readable */
+  a:hover {
+    color: var(--hover-bg-color);
+    text-decoration: underline;
   }
   

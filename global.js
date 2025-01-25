@@ -45,4 +45,36 @@ for (let p of pages) {
     // Append the link to the <nav>
     nav.append(a);
   }
+  document.body.insertAdjacentHTML(
+    'afterbegin',
+    `
+    <label class="color-scheme">
+      Theme:
+      <select id="theme-switch">
+        <option value="light dark" selected>Automatic</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>`
+  );
   
+  // Get the <select> element
+  const themeSwitch = document.getElementById('theme-switch');
+  
+  // Function to update the theme based on selection
+  themeSwitch.addEventListener('change', (event) => {
+    const value = event.target.value;
+  
+    // Set the color-scheme property on the <html> root element
+    document.documentElement.style.setProperty('color-scheme', value);
+  
+    // Save the user's preference in localStorage
+    localStorage.setItem('color-scheme', value);
+  });
+  
+  // Apply the saved theme preference on page load
+  const savedTheme = localStorage.getItem('color-scheme');
+  if (savedTheme) {
+    document.documentElement.style.setProperty('color-scheme', savedTheme);
+    themeSwitch.value = savedTheme;
+  }
