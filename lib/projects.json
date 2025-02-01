@@ -1,0 +1,80 @@
+[
+	{
+	  "title": "Recipe and Ratings project",
+	  "year": "2024",
+	  "image": "https://www.eatingwell.com/thmb/088YHsNmHkUQ7iNGP4375MiAXOY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/article_7866255_foods-you-should-eat-every-week-to-lose-weight_-04-d58e9c481bce4a29b47295baade4072d.jpg",
+	  "description": "Final Project for DSC 80, an investigation of relationship between recipe recipe features and ratings.",
+	  "link": "https://boruilin.github.io/Number-of-Step-and-Ratings-in-Recipe/"
+	},
+	{
+	  "title": "Project 1 DSC106",
+	  "year": "2025",
+	  "image": "https://wmo.int/sites/default/files/styles/featured_image_x1_768x512/public/2023-12/thumbnails_5.jpg?h=d1cb525d&itok=aZ4qUGTc",
+	  "description": "First Project for DSC106, A visualization about sunshine and rainfall in major U.S. cities."
+	}, 
+	{
+		"title": "Undegraduate Econ Project",
+		"year": "2023",
+		"image": "https://www.usatoday.com/gcdn/-mm-/67cb723a33b82c7fa74bda9d580fc343a8918c2d/c=44-0-755-400/local/-/media/2017/05/28/USATODAY/usatsports/nba-logo.jpg?width=711&height=400&fit=crop&format=pjpg&auto=webp",
+		"description": "Project about the Analyzing game stats from NBA and NFL games."
+	  },
+	  {
+		"title": "Project 4",
+		"year": "2021",
+		"image": "https://example.com/image2.png",
+		"description": "Description of Project 4."
+	  },
+	  {
+		"title": "Project 5",
+		"year": "2021",
+		"image": "https://example.com/image2.png",
+		"description": "Description of Project 5."
+	  },
+	  {
+		"title": "Project 6",
+		"year": "2019",
+		"image": "https://example.com/image2.png",
+		"description": "Description of Project 6."
+	  },
+		{
+		  "title": "Data Visualization with D3",
+		  "year": "2022",
+		  "image": "https://miro.medium.com/v2/resize:fit:800/1*0O4RpIMN7JdXs3dtGJt9Xg.png",
+		  "description": "A project focused on interactive data visualization using D3.js."
+		},
+		{
+		  "title": "Machine Learning Model",
+		  "year": "2023",
+		  "image": "https://cdn.analyticsvidhya.com/wp-content/uploads/2020/02/machine-learning.jpg",
+		  "description": "Developed a predictive model using scikit-learn to forecast sales trends."
+		},
+		{
+		  "title": "Web Development Portfolio",
+		  "year": "2024",
+		  "image": "https://www.creativebloq.com/binaries/content/gallery/cb-blogs/web-design/portfolio-examples-main.jpg",
+		  "description": "A personal portfolio website showcasing web development projects."
+		},
+		{
+		  "title": "Cryptocurrency Price Analysis",
+		  "year": "2020",
+		  "image": "https://cryptologos.cc/logos/bitcoin-btc-logo.png",
+		  "description": "Analyzed historical cryptocurrency price data to identify trends."
+	
+		},
+		{
+		  "title": "Climate Change Impact Study",
+		  "year": "2018",
+		  "image": "https://climate.nasa.gov/system/content_pages/main_images/13_climate_change_main_image.jpg",
+		  "description": "A study on climate change patterns and their socio-economic impacts."
+	
+		},
+		{
+		  "title": "E-Commerce Dashboard",
+		  "year": "2023",
+		  "image": "https://d2slcw3kip6qmk.cloudfront.net/marketing/pages/chart/line-chart-example.png",
+		  "description": "Built an interactive dashboard for monitoring e-commerce KPIs."
+		}
+	]
+	
+	
+  

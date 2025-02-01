@@ -297,4 +297,22 @@ a {
     color: var(--hover-bg-color);
     text-decoration: underline;
   }
+  #profile-stats dl {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 10px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  #profile-stats dt {
+    font-weight: bold;
+  }
+  
+  #profile-stats dd {
+    margin: 0;
+  }
+
+  
   

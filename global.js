@@ -78,3 +78,57 @@ if (savedTheme) {
   document.documentElement.style.setProperty('color-scheme', savedTheme);
   themeSwitch.value = savedTheme;
 }
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  containerElement.innerHTML = ''; // Clear existing content
+
+  projects.forEach(project => {
+    const article = document.createElement('article');
+    article.innerHTML = `
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+      ${project.link ? `<a href="${project.link}" target="_blank" class="project-link">View Project</a>` : ''}
+    `;
+    containerElement.appendChild(article);
+  });
+}
+
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('nav a');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      const target = link.getAttribute('href');
+
+      // Allow external links to open in a new tab
+      if (link.target === '_blank') {
+        return;  // Skip preventing the default behavior for external links
+      }
+
+      // For internal links, prevent default and navigate normally
+      event.preventDefault();
+      window.location.href = target;
+    });
+  });
+});
+
+
