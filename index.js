@@ -12,6 +12,10 @@ import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
   const profileStats = document.querySelector('#profile-stats');
 
   if (profileStats) {
+    if (document.body.classList.contains('dark-mode')) {
+      profileStats.classList.add('dark-mode');
+    }
+
     profileStats.innerHTML = `
       <h2>GitHub Profile Stats</h2>
       <dl>
@@ -20,6 +24,7 @@ import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
         <dt>Followers:</dt><dd>${githubData.followers}</dd>
         <dt>Following:</dt><dd>${githubData.following}</dd>
       </dl>
-    `;
+    `;  
   }
 })();
+

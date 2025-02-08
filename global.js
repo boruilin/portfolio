@@ -33,7 +33,7 @@ for (let p of pages) {
   a.classList.toggle(
     'current',
     a.host === location.host && a.pathname === location.pathname
-  );
+  );  
 
   // Open external links in a new tab
   if (url.startsWith('http')) {
@@ -42,7 +42,7 @@ for (let p of pages) {
 
   // Append the link to the <nav>
   nav.append(a);
-}
+}  
 
 // Add the dark mode switch
 document.body.insertAdjacentHTML(
@@ -94,14 +94,15 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
   containerElement.innerHTML = ''; // Clear existing content
 
   projects.forEach(project => {
-    const article = document.createElement('article');
-    article.innerHTML = `
-      <${headingLevel}>${project.title}</${headingLevel}>
-      <img src="${project.image}" alt="${project.title}">
-      <p>${project.description}</p>
-      ${project.link ? `<a href="${project.link}" target="_blank" class="project-link">View Project</a>` : ''}
-    `;
-    containerElement.appendChild(article);
+    const projectElement = renderProject(project);
+    // const article = document.createElement('article');
+    // article.innerHTML = `
+    //   <${headingLevel}>${project.title}</${headingLevel}>
+    //   <img src="${project.image}" alt="${project.title}">
+    //   <p>${project.description}</p>
+    //   ${project.link ? `<a href="${project.link}" target="_blank" class="project-link">View Project</a>` : ''}
+    // `;
+    containerElement.appendChild(projectElement);
   });
 }
 
@@ -129,6 +130,23 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = target;
     });
   });
+  
 });
+function renderProject(project) {
+  const projectContainer = document.createElement("div");
+  projectContainer.classList.add("project");
+
+  projectContainer.innerHTML = `
+      <h3>${project.title}</h3>
+      <img src="${project.image || 'images/placeholder.png'}" alt="${project.title}">
+      <div class="project-info">
+          <p>${project.description}</p>
+          <p class="project-year"><em>c. ${project.year}</em></p>
+      </div>
+  `;
+
+  return projectContainer;
+}
+
 
 

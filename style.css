@@ -314,5 +314,212 @@ a {
     margin: 0;
   }
 
+  .project {
+    display: flex;
+    flex-direction: column;
+    justify-content: start; /* Ensures title stays at the top */
+    align-items: flex-start; /* Aligns text properly */
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Adds spacing between description and year */
+    text-align: left;
+}
+
+.project-year {
+    font-style: italic;
+    color: #666; /* Light gray color */
+    font-size: 0.9em;
+    margin-top: 5px; /* Ensure space below description */
+    align-self: flex-start;
+}
+
+.project img {
+    width: 100%;  /* Make images take up full width of their container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures images scale properly without distortion */
+    max-height: 200px; /* Optional: Limits image height for consistency */
+    border-radius: 8px; /* Optional: Rounds corners for a polished look */
+}
+#projects-plot {
+    max-width: 20em;
+    margin-block: 2em;
+    overflow: visible;
+  }
+/* ✅ Ensure Pie Chart and Legend Stay Side by Side */
+.chart-container {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px; /* ✅ Match width exactly */
+    margin: auto;
+}
+
+/* ✅ Fix Legend Layout */
+.legend {
+    list-style: none;
+    padding: 16px;  /* ✅ Increased padding for better spacing */
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* ✅ Wider legend */
+    gap: 1em;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: left;
+    width: 100%;
+    max-width: 500px;
+    justify-content: center;
+}
+
+/* ✅ Fix Legend Text & Visibility */
+.legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 1.1em; /* ✅ Match text size */
+    font-weight: 500;
+}
+
+/* ✅ Ensure Swatches Are Properly Sized */
+.legend .swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color);
+}
+
+/* ✅ Make Pie Chart Fully Responsive */
+#projects-plot {
+    flex: 1;
+    max-width: 320px;
+    min-width: 250px;
+    height: auto;
+}
+
+/* ✅ Increase Search Bar Size */
+.searchBar {
+    width: 100%;
+    max-width: 600px; /* ✅ Match search bar size */
+    font-size: 1.1em;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* ✅ Ensure Hover Effects */
+path {
+    transition: 300ms;
+    cursor: pointer;
+}
+
+path:hover {
+    opacity: 0.7;
+}
+
+/* ✅ Hover & Click Effects */
+#projects-plot:has(path:hover) path:not(:hover) {
+    opacity: 0.5;
+}
+
+/* ✅ Selected Pie Slice Effect */
+.selected {
+    --color: oklch(60% 45% 0) !important;
+}
+
+.selected path {
+    fill: var(--color) !important;
+}
+
+/* ✅ Selected Legend Effect */
+.legend .selected {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* ✅ Dark Mode Fix for Legend & GitHub Stats */
+/* ✅ Ensure Legend Background & Text Adjusts Properly */
+.legend {
+    background-color: #f9f9f9; /* ✅ Default light mode background */
+    color: black; /* ✅ Default text color */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* ✅ Dark Mode Fix */
+.dark-mode .legend{
+    background-color: rgba(30, 30, 30, 0.95) !important; /* ✅ Darker, contrasting background */
+    color: white !important; /* ✅ Ensure text is visible */
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+/* ✅ Fix GitHub Stats Background & Text in Dark Mode */
+.dark-mode #profile-stats {
+    background-color: rgba(30, 30, 30, 0.95) !important; /* Dark background */
+    border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Subtle border */
+    color: white !important; /* Force bright text */
+}
+
+/* ✅ Fix the actual text inside the stats */
+.dark-mode #profile-stats h2,
+.dark-mode #profile-stats dt,
+.dark-mode #profile-stats dd {
+    color: white !important; /* Force white text */
+    font-weight: bold !important; /* Make it clearer */
+    opacity: 1 !important;
+}
+
+
+
+
+/* ✅ Ensure Swatches Stay Visible in Both Modes */
+.legend .swatch {
+    border: 1px solid rgba(0, 0, 0, 0.2); /* ✅ Light mode swatch */
+}
+
+.dark-mode .legend .swatch {
+    border: 1px solid rgba(255, 255, 255, 0.7); /* ✅ Dark mode swatch */
+}
+
+#profile-stats dl {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 10px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+/* ✅ Ensure Responsive Scaling */
+@media (prefers-color-scheme: dark) {
+    #profile-stats dl {
+      background-color: #333; /* Dark background color */
+      color: #fff; /* Light text color */
+    }
+  }
   
-  
+
+@media (max-width: 900px) {
+    .chart-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #projects-plot {
+        max-width: 220px;
+    }
+
+    .legend {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        justify-content: center;
+    }
+
+    .searchBar {
+        max-width: 100%;
+    }
+}
