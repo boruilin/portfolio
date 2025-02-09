@@ -458,21 +458,8 @@ path:hover {
     color: white !important; /* ✅ Ensure text is visible */
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
-/* ✅ Fix GitHub Stats Background & Text in Dark Mode */
-.dark-mode #profile-stats {
-    background-color: rgba(30, 30, 30, 0.95) !important; /* Dark background */
-    border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Subtle border */
-    color: white !important; /* Force bright text */
-}
 
-/* ✅ Fix the actual text inside the stats */
-.dark-mode #profile-stats h2,
-.dark-mode #profile-stats dt,
-.dark-mode #profile-stats dd {
-    color: white !important; /* Force white text */
-    font-weight: bold !important; /* Make it clearer */
-    opacity: 1 !important;
-}
+
 
 
 

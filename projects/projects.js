@@ -5,8 +5,9 @@ const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
 const searchInput = document.querySelector('.searchBar');
 
-let selectedIndex = -1; // ✅ Track which wedge is selected
-let labels = []; // ✅ Store years for filtering
+let currentSearchQuery = ''; // ✅ Track search input
+let currentSelectedYear = null; // ✅ Track selected year
+let labels = []; // ✅ Store available years
 
 // ✅ Render Initial Project List
 renderProjects(projects, projectsContainer, 'h2');
@@ -14,7 +15,7 @@ renderProjects(projects, projectsContainer, 'h2');
 // ✅ Update Project Title Count
 const projectsTitle = document.querySelector('.projects-title');
 if (projectsTitle) {
-  projectsTitle.textContent = `${projects.length} Projects`;
+    projectsTitle.textContent = `${projects.length} Projects`;
 }
 
 // ✅ Function to Get Yearly Project Data
@@ -25,12 +26,24 @@ function getProjectData(projectsList) {
         (d) => d.year
     );
 
-    labels = rolledData.map(([year]) => year); // ✅ Save years for selection tracking
+    labels = rolledData.map(([year]) => year); // ✅ Store year labels
 
     return rolledData.map(([year, count]) => ({
         value: count,
         label: year
     }));
+}
+
+// ✅ Function to Filter Projects Based on Search + Year Selection
+function filterProjects() {
+    let filteredProjects = projects.filter((project) => {
+        let matchesSearchQuery = Object.values(project).join('\n').toLowerCase().includes(currentSearchQuery);
+        let matchesSelectedYear = currentSelectedYear ? project.year === currentSelectedYear : true;
+        return matchesSearchQuery && matchesSelectedYear;
+    });
+
+    renderProjects(filteredProjects, projectsContainer, 'h2');
+    renderPieChart(filteredProjects);
 }
 
 // ✅ Function to Render Pie Chart
@@ -58,10 +71,10 @@ function renderPieChart(projectsList) {
         .append("path")
         .attr("d", arcGenerator)
         .attr("fill", (d, i) => colors(i))
+        .attr("data-year", d => d.data.label) // ✅ Set data attribute for filtering
         .on("click", function (_, d) {
-            selectedIndex = selectedIndex === labels.indexOf(d.data.label) ? -1 : labels.indexOf(d.data.label);
-            updateProjects(); // ✅ Update projects when selecting a slice
-            updateLegend(data, colors);
+            currentSelectedYear = currentSelectedYear === d.data.label ? null : d.data.label; // ✅ Toggle selection
+            filterProjects(); // ✅ Apply updated filter logic
         });
 
     updateLegend(data, colors);
@@ -75,25 +88,13 @@ function updateLegend(data, colors) {
     data.forEach((d, i) => {
         legend.append('li')
             .attr('style', `--color: ${colors(i)}`)
-            .attr('class', selectedIndex === labels.indexOf(d.label) ? "selected" : "")
+            .attr('class', currentSelectedYear === d.label ? "selected" : "")
             .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`)
             .on("click", function () {
-                selectedIndex = selectedIndex === labels.indexOf(d.label) ? -1 : labels.indexOf(d.label);
-                updateProjects(); // ✅ Update projects when selecting a legend item
-                updateLegend(data, colors);
+                currentSelectedYear = currentSelectedYear === d.label ? null : d.label; // ✅ Toggle selection
+                filterProjects(); // ✅ Apply updated filter logic
             });
     });
-}
-
-// ✅ Function to Update Projects Based on Selected Year
-function updateProjects() {
-    if (selectedIndex === -1) {
-        renderProjects(projects, projectsContainer, 'h2'); // Show all projects
-    } else {
-        const selectedYear = labels[selectedIndex]; // ✅ Get selected year from labels
-        const filteredProjects = projects.filter(p => p.year === selectedYear); // ✅ Filter projects by year
-        renderProjects(filteredProjects, projectsContainer, 'h2'); // ✅ Render filtered projects
-    }
 }
 
 // ✅ Render the Pie Chart Initially
@@ -101,21 +102,6 @@ renderPieChart(projects);
 
 // ✅ Implement Search Filtering (Sync with Pie Selection)
 searchInput.addEventListener('input', (event) => {
-    let query = event.target.value.toLowerCase();
-
-    let filteredProjects = projects.filter((project) => {
-        let values = Object.values(project).join('\n').toLowerCase();
-        return values.includes(query);
-    });
-
-    renderProjects(filteredProjects, projectsContainer, 'h2');
-
-    let filteredData = getProjectData(filteredProjects);
-    renderPieChart(filteredProjects);
-
-    if (selectedIndex !== -1) {
-        updateProjects();
-    }
+    currentSearchQuery = event.target.value.toLowerCase();
+    filterProjects();
 });
-
-
