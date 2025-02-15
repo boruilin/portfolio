@@ -510,3 +510,168 @@ path:hover {
         max-width: 100%;
     }
 }
+/* 📌 Stats Container */
+#stats-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 📌 Align Summary Heading */
+#stats-container h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+/* 📌 Grid layout for stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 40px;
+    text-align: center;
+    padding: 15px 0;
+}
+
+/* 📌 Individual stat item */
+.stats-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 📌 Label above each number */
+.stats-item label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #6c757d;
+}
+
+/* 📌 Bold Stat Values */
+.stat-value {
+    font-size: 40px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* 📌 Scatterplot */
+#chart-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 📌 Grid lines */
+.grid line {
+    stroke: #e0e0e0;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+}
+
+/* 📌 Tooltip */
+.tooltip {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 250px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* 📌 Ensure tooltip is hidden initially */
+.tooltip[hidden] {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* 📌 Styling the tooltip content */
+dl.info {
+    display: grid;
+    grid-template-columns: max-content auto;
+    gap: 6px 12px;
+    font-size: 14px;
+}
+
+dl.info dt {
+    font-weight: bold;
+    color: #555;
+}
+
+dl.info dd {
+    margin: 0;
+    color: #222;
+}
+
+/* 📌 Hover styles for scatterplot circles */
+circle {
+    transition: 200ms;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+circle:hover {
+    transform: scale(1.5);
+}
+
+/* 📌 Selection Box */
+.selection-box {
+    fill: rgba(100, 100, 100, 0.2);
+    stroke: black;
+    stroke-dasharray: 4;
+}
+
+/* 📌 Brushing Selection */
+.selection {
+    fill-opacity: 0.1;
+    stroke: black;
+    stroke-opacity: 0.7;
+    stroke-dasharray: 5 3;
+    animation: marching-ants 2s linear infinite;
+}
+
+@keyframes marching-ants {
+    to {
+        stroke-dashoffset: -8;
+    }
+}
+
+/* 📌 Highlight selected commits */
+circle.selected {
+    fill: #ff6b6b;
+}
+
+/* 📌 Selection Summary */
+#selection-summary {
+    max-width: 1000px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+#selection-breakdown {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* 📌 Styling for language breakdown */
+.language-breakdown {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
